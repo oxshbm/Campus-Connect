@@ -1,11 +1,12 @@
 import './App.css'
 
+
 function App() {
 
 
   return (
     <>
-    <h1>igfr</h1>
+    <h1>hey there is the first component </h1>
     </>
   )
 }
