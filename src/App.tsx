@@ -1,4 +1,3 @@
-import ColorSchemesExample from './components/navbar'
 import './App.css'
 
 function App() {
@@ -6,7 +5,7 @@ function App() {
 
   return (
     <>
-    <ColorSchemesExample/>
+    <h1>igfr</h1>
     </>
   )
 }
