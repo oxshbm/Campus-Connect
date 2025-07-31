@@ -1,20 +1,25 @@
-import Navbar from "../components/Navbar";
-import WelcomeBanner from "../components/WelcomeBanner";
-import DashboardGrid from "../components/DashboardGrid";
+import Sidebar from "../components/Sidebar";
+import Header from "../components/Header";
+import ClubBanner from "../components/ClubBanner";
+import AssignmentsDue from "../components/AssignmentsDue";
+import CreditCheckCard from "../components/CreditCheckCard";
+import ExamTable from "../components/ExamTable";
 
-const Dashboard: React.FC = () => {
-  // You could fetch user info with context or global store
-  const userName = "Amit"; // placeholder
-
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
-      <main className="max-w-6xl mx-auto px-4 py-8">
-        <WelcomeBanner userName={userName} />
-        <DashboardGrid />
-      </main>
+const Dashboard: React.FC = () => (
+  <div className="flex bg-[#E7ECF8] min-h-screen w-screen h-screen">
+    <Sidebar />
+    <div className="flex-1 px-8 pb-8">
+      <Header />
+      <div>
+        <ClubBanner />
+        <div className="flex justify-between gap-6 items-start mt-8">
+          <AssignmentsDue />
+          <CreditCheckCard />
+        </div>
+        <ExamTable />
+      </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default Dashboard;
