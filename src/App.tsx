@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard'
 import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import UserProfile from './pages/UserProfile'
 
 import GroupList from './pages/GroupList'
 import GroupDetails from './pages/GroupDetails'
@@ -27,6 +28,9 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<UserProfile />} />
+        
+        {/* Dashboard routes */}
 
         <Route path="/dashboard" element={<DashboardLayout><Dashboard /></DashboardLayout>} />
         <Route path="/groups/create" element={<DashboardLayout><CreateGroup /></DashboardLayout>} />
