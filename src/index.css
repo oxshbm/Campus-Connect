@@ -24,9 +24,9 @@ a:hover {
 
 body {
   margin: 0;
-  display: block;
-  width: 100vw;
+  display: flex;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
