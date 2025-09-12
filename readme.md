@@ -29,6 +29,32 @@ The platform is designed with a rich set of features to foster a connected campu
 
 ---
 
+## 📖 User Guide
+
+Once you have access to Campus Connect, here’s how you can get the most out of the platform.
+
+### 1. **Registration & Login**
+- Navigate to the **Register** page from the landing screen.
+- Select your role (e.g., Student, Alumni) and fill in the required details.
+- Once registered, use the **Login** page to access your account.
+
+### 2. **Navigating the Dashboard**
+- After logging in, you'll land on your **Dashboard**.
+- The dashboard provides quick access cards to all major features like **Study Groups**, **Q&A Forum**, **Alumni Directory**, and more.
+
+### 3. **Using the Platform**
+- **Find a Study Group**: Go to the `Study Groups` section to browse existing groups. You can filter by subject or create your own.
+- **Ask a Question**: Head to the `Q&A Forum` to post a question for the community or answer existing ones.
+- **Connect with Alumni**: Use the `Alumni Directory` to search for graduates in your field of interest and connect with them for mentorship or networking.
+- **Manage Your Profile**: Click on your profile icon to go to your `Profile` page, where you can update your bio, skills, and see all your activities on the platform.
+
+### 4. **Roles**
+- **Student**: Can access all features, including creating groups, joining projects, and asking questions.
+- **Alumni**: Can act as mentors, connect with students, and participate in the alumni directory.
+- **Admin**: Manages platform content like events and workshops, and oversees user activities.
+
+---
+
 ## 🧩 Tech Stack
 
 This project is built using a modern frontend stack, focusing on performance and developer experience.
@@ -43,7 +69,7 @@ This project is built using a modern frontend stack, focusing on performance and
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Developer Setup Guide
 
 Follow these instructions to get a local copy up and running for development and testing purposes.
 
