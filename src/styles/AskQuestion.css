@@ -1,0 +1,270 @@
+/* ========== General Styles ========== */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f6f7f8;
+  color: #1a1a1b;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ========== Navbar ========== */
+#navbar {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ========== Main Content ========== */
+.main-content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Create Post Form */
+.create-post-form {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.create-post-form input,
+.create-post-form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+.create-post-form input:focus,
+.create-post-form textarea:focus {
+  border-color: #0079d3;
+  outline: none;
+}
+
+.create-post-form .btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background-color: #0079d3;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #005fa3;
+}
+
+.btn-secondary {
+  background-color: #e6e6e6;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #ccc;
+}
+
+/* ========== Post Cards ========== */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post {
+  display: flex;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+}
+
+.post:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Voting Section */
+.post-voting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.vote-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #878a8c;
+  font-size: 1.2rem;
+  transition: 0.2s;
+}
+
+.vote-btn:hover {
+  color: #0079d3;
+}
+
+.vote-count {
+  font-weight: 600;
+  margin: 0.4rem 0;
+}
+
+/* Post Content */
+.post-content {
+  flex: 1;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #7c7c7c;
+  margin-bottom: 0.3rem;
+}
+
+.post-community {
+  color: #0079d3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.post-user {
+  color: #444;
+  text-decoration: none;
+}
+
+.post-title {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1b;
+}
+
+.post-body {
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+/* Post Actions */
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.post-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #7c7c7c;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.post-actions button:hover {
+  color: #0079d3;
+}
+
+/* ========== Sidebar ========== */
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.widget {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.widget .btn {
+  width: 48%;
+  text-align: center;
+  padding: 0.6rem 0;
+  font-weight: 500;
+}
+
+.widget .btn-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.widget-title {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.about-widget p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.widget-stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.8rem 0;
+}
+
+.widget-stats div {
+  text-align: center;
+}
+
+.widget-stats strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.rules-widget ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+.rules-widget li {
+  margin-bottom: 0.4rem;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+}

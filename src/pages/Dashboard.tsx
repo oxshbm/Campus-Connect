@@ -22,23 +22,12 @@
 // };
 
 
-// export default Dashboard;
-
-
-
-
-
-
-
-
-
-
-
+// export default Dashboard
 
 
 import React from 'react';
 import { Users, MessageCircle, Award, Clock, Folder, Heart, Calendar, Book } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
 const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -62,7 +51,7 @@ const Dashboard = () => {
             </button>
             <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
               <MessageCircle className="w-4 h-4" />
-              <span className="text-sm">Q&A</span>
+              <span className="text-sm"><Link to ="/ask-question">Q&A</Link></span>
             </button>
             <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
               <Users className="w-4 h-4" />

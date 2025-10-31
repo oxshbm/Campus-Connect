@@ -11,6 +11,7 @@ import GroupList from './pages/GroupList'
 import GroupDetails from './pages/GroupDetails'
 import CreateGroup from './pages/CreateGroup'
 import Sidebar from './components/Sidebar'
+import AskQuestion from './pages/AskQuestion'
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => (
   <div className="flex min-h-screen bg-gray-50">
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/ask-question" element={<AskQuestion />} />
         
         {/* Dashboard routes */}
 
