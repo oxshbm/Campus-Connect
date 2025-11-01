@@ -1,215 +1,188 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import {
-  Calendar,
-  Book,
-  Users,
-  MessageCircle,
-  Folder,
-  Heart,
-  LogOut,
-  PlusCircle,
-} from "lucide-react";
+import Sidebar from "../components/Sidebar";
+import "/src/styles/AddEvent.css";
 
 const AddEvent: React.FC = () => {
-  const [events, setEvents] = useState<
-    { id: number; title: string; date: string; time: string; organizer: string; hashtag: string; description: string }[]
-  >([]);
-  const [formData, setFormData] = useState({
+  const [events, setEvents] = useState<any[]>([]);
+  const [newEvent, setNewEvent] = useState({
     title: "",
     date: "",
-    time: "",
-    organizer: "",
-    hashtag: "",
+    location: "",
+    type: "Event",
     description: "",
+    attendees: 0,
+    organizer: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setNewEvent({ ...newEvent, [name]: value });
   };
 
-  const handleAddEvent = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.title || !formData.date || !formData.time) {
-      alert("Please fill all required fields!");
-      return;
-    }
-
-    const newEvent = {
-      id: events.length + 1,
-      ...formData,
-    };
-
-    setEvents((prev) => [...prev, newEvent]);
-    setFormData({
+  const handleAddEvent = () => {
+    if (!newEvent.title || !newEvent.date || !newEvent.location) return;
+    setEvents([...events, newEvent]);
+    setNewEvent({
       title: "",
       date: "",
-      time: "",
-      organizer: "",
-      hashtag: "",
+      location: "",
+      type: "Event",
       description: "",
+      attendees: 0,
+      organizer: "",
     });
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-50">
-      {/* Sidebar Navigation */}
-      <aside className="w-64 bg-white border-r border-gray-200 min-h-screen p-6">
-        <div className="flex items-center gap-2 mb-8">
-          <div className="bg-blue-500 p-2 rounded-lg">
-            <Book className="w-6 h-6 text-white" />
-          </div>
-          <h1 className="text-2xl font-bold text-blue-500">Campus Connect</h1>
-        </div>
-
-        <nav className="flex flex-col gap-4">
-          <Link to="/" className="flex items-center gap-2 text-gray-700 hover:text-blue-500">
-            <Book className="w-4 h-4" /> Dashboard
-          </Link>
-          <Link to="/study-groups" className="flex items-center gap-2 text-gray-700 hover:text-blue-500">
-            <Users className="w-4 h-4" /> Study Groups
-          </Link>
-          <Link to="/ask-question" className="flex items-center gap-2 text-gray-700 hover:text-blue-500">
-            <MessageCircle className="w-4 h-4" /> Q&A Forum
-          </Link>
-          <Link to="/projects" className="flex items-center gap-2 text-gray-700 hover:text-blue-500">
-            <Folder className="w-4 h-4" /> Projects
-          </Link>
-          <Link to="/mentorship" className="flex items-center gap-2 text-gray-700 hover:text-blue-500">
-            <Heart className="w-4 h-4" /> Mentorship
-          </Link>
-          <Link to="/add-event" className="flex items-center gap-2 text-blue-600 font-semibold">
-            <Calendar className="w-4 h-4" /> Manage Events
-          </Link>
-        </nav>
-
-        <button className="flex items-center gap-2 text-red-500 mt-8 hover:text-red-600">
-          <LogOut className="w-4 h-4" /> Logout
-        </button>
-      </aside>
+    <div className="flex min-h-screen bg-[#f6f7f8]">
+      {/* Sidebar */}
+      <Sidebar />
 
       {/* Main Content */}
-      <main className="flex-1 p-10">
-        <header className="flex items-center justify-between mb-10">
-          <h2 className="text-3xl font-bold text-blue-600">Event Management </h2>
-          <div className="flex items-center gap-3">
-            <PlusCircle className="w-6 h-6 text-blue-500" />
-            <span className="text-gray-600">Add or Manage Events</span>
-          </div>
-        </header>
+      <div className="flex-1 p-10">
+        <h1 className="text-4xl font-bold text-blue-600 mb-8">Add Events, Workshops & Seminars</h1>
 
-        {/* Add Event Form */}
-        <section className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 mb-12">
-          <h3 className="text-xl font-semibold mb-6 text-gray-800">Add New Event</h3>
-          <form onSubmit={handleAddEvent} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Form Section */}
+        <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 mb-10">
+          <h2 className="text-2xl font-semibold mb-6 text-gray-800">Create a New Entry</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-gray-700 text-sm font-medium mb-1">Event Title *</label>
+              <label className="block font-medium text-gray-700 mb-2">Title</label>
               <input
                 type="text"
                 name="title"
-                value={formData.title}
+                value={newEvent.title}
                 onChange={handleChange}
-                placeholder="Enter event title"
-                className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="w-full p-3 border rounded-lg"
+                placeholder="Enter title"
               />
             </div>
+
             <div>
-              <label className="block text-gray-700 text-sm font-medium mb-1">Organizer</label>
-              <input
-                type="text"
-                name="organizer"
-                value={formData.organizer}
-                onChange={handleChange}
-                placeholder="Organizer name"
-                className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 text-sm font-medium mb-1">Date *</label>
+              <label className="block font-medium text-gray-700 mb-2">Date</label>
               <input
                 type="date"
                 name="date"
-                value={formData.date}
+                value={newEvent.date}
                 onChange={handleChange}
-                className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="w-full p-3 border rounded-lg"
               />
             </div>
+
             <div>
-              <label className="block text-gray-700 text-sm font-medium mb-1">Time *</label>
-              <input
-                type="time"
-                name="time"
-                value={formData.time}
-                onChange={handleChange}
-                className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 text-sm font-medium mb-1">Event Hashtag</label>
+              <label className="block font-medium text-gray-700 mb-2">Location</label>
               <input
                 type="text"
-                name="hashtag"
-                value={formData.hashtag}
+                name="location"
+                value={newEvent.location}
                 onChange={handleChange}
-                placeholder="#TechFest"
-                className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="w-full p-3 border rounded-lg"
+                placeholder="e.g. Auditorium, Block A"
               />
             </div>
-            <div className="md:col-span-2">
-              <label className="block text-gray-700 text-sm font-medium mb-1">Description</label>
-              <textarea
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-                placeholder="Describe the event..."
-                rows={4}
-                className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
-              />
-            </div>
-            <div className="md:col-span-2 flex justify-end">
-              <button
-                type="submit"
-                className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all"
-              >
-                Add Event
-              </button>
-            </div>
-          </form>
-        </section>
 
-        {/* Existing Events Section */}
-        <section>
-          <h3 className="text-xl font-semibold mb-6 text-gray-800">Existing Events</h3>
-          {events.length === 0 ? (
-            <p className="text-gray-500">No events added yet.</p>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {events.map((event) => (
-                <div
-                  key={event.id}
-                  className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-lg font-bold text-blue-500">{event.title}</h4>
-                    <span className="text-sm text-gray-500">{event.date}</span>
-                  </div>
-                  <p className="text-gray-600 text-sm mb-1">
-                    <strong>Time:</strong> {event.time}
-                  </p>
-                  <p className="text-gray-600 text-sm mb-1">
-                    <strong>Organizer:</strong> {event.organizer || "N/A"}
-                  </p>
-                  <p className="text-gray-600 text-sm mb-1">
-                    <strong>Hashtag:</strong> {event.hashtag || "None"}
-                  </p>
-                  <p className="text-gray-600 text-sm mt-2">{event.description || "No description provided."}</p>
-                </div>
-              ))}
+            <div>
+              <label className="block font-medium text-gray-700 mb-2">Type</label>
+              <select
+                name="type"
+                value={newEvent.type}
+                onChange={handleChange}
+                className="w-full p-3 border rounded-lg"
+              >
+                <option value="Event">Event</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Seminar">Seminar</option>
+              </select>
             </div>
-          )}
-        </section>
-      </main>
+
+            {newEvent.type !== "Event" && (
+              <div>
+                <label className="block font-medium text-gray-700 mb-2">Organizer</label>
+                <input
+                  type="text"
+                  name="organizer"
+                  value={newEvent.organizer}
+                  onChange={handleChange}
+                  className="w-full p-3 border rounded-lg"
+                  placeholder="Who is conducting it?"
+                />
+              </div>
+            )}
+
+            {newEvent.type !== "Event" && (
+              <div>
+                <label className="block font-medium text-gray-700 mb-2">Attendees</label>
+                <input
+                  type="number"
+                  name="attendees"
+                  value={newEvent.attendees}
+                  onChange={handleChange}
+                  className="w-full p-3 border rounded-lg"
+                  placeholder="Number of people attending"
+                />
+              </div>
+            )}
+          </div>
+
+          <div className="mt-6">
+            <label className="block font-medium text-gray-700 mb-2">Description</label>
+            <textarea
+              name="description"
+              value={newEvent.description}
+              onChange={handleChange}
+              className="w-full p-3 border rounded-lg"
+              placeholder="Describe the event, workshop or seminar..."
+              rows={4}
+            />
+          </div>
+
+          <button
+            onClick={handleAddEvent}
+            className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow transition-all"
+          >
+            Add {newEvent.type}
+          </button>
+        </div>
+
+        {/* Display Added Events */}
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6">Upcoming Activities</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {events.map((event, index) => (
+              <div
+                key={index}
+                className="bg-white border rounded-lg p-6 shadow hover:shadow-xl transition-all duration-300"
+              >
+                <h3 className="text-xl font-bold text-blue-600 mb-2">{event.title}</h3>
+                <p className="text-gray-600 mb-1">
+                  📅 <strong>Date:</strong> {event.date}
+                </p>
+                <p className="text-gray-600 mb-1">
+                  📍 <strong>Location:</strong> {event.location}
+                </p>
+                <p className="text-gray-600 mb-1">
+                  🎯 <strong>Type:</strong> {event.type}
+                </p>
+                {event.type !== "Event" && (
+                  <>
+                    <p className="text-gray-600 mb-1">
+                      👨‍🏫 <strong>Organizer:</strong> {event.organizer}
+                    </p>
+                    <p className="text-gray-600 mb-3">
+                      👥 <strong>Attendees:</strong> {event.attendees}
+                    </p>
+                    <button className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition">
+                      Register
+                    </button>
+                  </>
+                )}
+                <p className="text-gray-700 mt-3">{event.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
