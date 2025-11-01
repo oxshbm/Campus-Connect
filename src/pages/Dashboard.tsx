@@ -67,7 +67,7 @@ const Dashboard = () => {
             </button>
             <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
               <Calendar className="w-4 h-4" />
-              <span className="text-sm">Events</span>
+              <span className="text-sm"><Link to ="/add-event">Events</Link></span>
             </button>
             <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
               <Book className="w-4 h-4" />
