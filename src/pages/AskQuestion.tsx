@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../styles/AskQuestion.css";
+import { Users, MessageCircle, Award, Clock, Folder, Heart, Calendar, Book } from 'lucide-react';
+import { Link } from 'react-router-dom';
  // <-- move all <style> content here
 
 interface Post {
@@ -86,7 +88,54 @@ const AskQuestion: React.FC = () => {
 
       {/* Navbar */}
       <nav id="navbar">
-        {/* Add your navbar content here */}
+        <header className="bg-white border-b border-gray-200 px-8 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="bg-blue-500 p-2 rounded-lg">
+              <Book className="w-6 h-6 text-white" />
+            </div>
+            <h1 className="text-2xl font-bold text-blue-500">Campus Connect</h1>
+          </div>
+          <nav className="flex items-center gap-6">
+            <button className="flex items-center gap-2 text-blue-500">
+              <Book className="w-4 h-4" />
+              <span className="text-sm">Dashboard</span>
+            </button>
+            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
+              <Users className="w-4 h-4" />
+              <span className="text-sm">Study Groups</span>
+            </button>
+            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
+              <MessageCircle className="w-4 h-4" />
+              <span className="text-sm"><Link to ="/ask-question">Q&A</Link></span>
+            </button>
+            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
+              <Users className="w-4 h-4" />
+              <span className="text-sm">Alumni</span>
+            </button>
+            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
+              <Folder className="w-4 h-4" />
+              <span className="text-sm">Projects</span>
+            </button>
+            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
+              <Heart className="w-4 h-4" />
+              <span className="text-sm">Mentorship</span>
+            </button>
+            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
+              <Calendar className="w-4 h-4" />
+              <span className="text-sm">Events</span>
+            </button>
+            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
+              <Book className="w-4 h-4" />
+              <span className="text-sm">Workshops</span>
+            </button>
+            <button className="flex items-center gap-2 text-gray-700 hover:text-blue-500">
+              <Users className="w-4 h-4" />
+              <span className="text-sm">Profile</span>
+            </button>
+          </nav>
+        </div>
+      </header>
       </nav>
 
       {/* Main content container */}
