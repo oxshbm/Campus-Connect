@@ -33,6 +33,7 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/ask-question" element={<AskQuestion />} />
         <Route path="/add-event" element={<AddEvent />} />
+        <Route path ="/user-profile" element={<UserProfile />} />
         
         {/* Dashboard routes */}
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/groups/create" element={<DashboardLayout><CreateGroup /></DashboardLayout>} />
         <Route path="/groups" element={<DashboardLayout><GroupList /></DashboardLayout>} />
         <Route path="/groups/:groupId" element={<DashboardLayout><GroupDetails /></DashboardLayout>} />
+        
       </Routes>
     </BrowserRouter>
   )

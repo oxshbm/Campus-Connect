@@ -24,7 +24,6 @@
 
 // export default Dashboard
 
-
 import React from 'react';
 import { Users, MessageCircle, Award, Clock, Folder, Heart, Calendar, Book } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -75,7 +74,7 @@ const Dashboard = () => {
             </button>
             <button className="flex items-center gap-2 text-gray-700 hover:text-blue-500">
               <Users className="w-4 h-4" />
-              <span className="text-sm">Profile</span>
+              <span className="text-sm"><Link to = "/user-profile">Profile</Link></span>
             </button>
           </nav>
         </div>
