@@ -88,12 +88,13 @@ import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
   { label: "Dashboard", to: "/dashboard", icon: <FaChalkboardTeacher /> },
-  { label: "Timetable", to: "/timetable", icon: <FaCalendarAlt /> },
-  { label: "Attendance", to: "/attendance", icon: <FaUserFriends /> },
-  { label: "Exam Board", to: "/exams", icon: <FaChalkboardTeacher /> },
-  { label: "Credit Check", to: "/credit", icon: <FaBell /> },
-  { label: "Calendar", to: "/calendar", icon: <FaCalendarAlt /> },
-  { label: "Study Groups", to: "/groups", icon: <FaUsers /> },
+   { label: "Study Groups", to: "/groups", icon: <FaUsers /> },
+  { label: "Questions Forum", to: "/timetable", icon: <FaCalendarAlt /> },
+  { label: "Alumni Network", to: "/attendance", icon: <FaUserFriends /> },
+  { label: "Daily Quiz", to: "/exams", icon: <FaChalkboardTeacher /> },
+  { label: "Projects", to: "/credit", icon: <FaBell /> },
+  { label: "Events", to: "/calendar", icon: <FaCalendarAlt /> },
+ 
   { label: "Students Forum", to: "/forum", icon: <FaUserFriends /> },
   { label: "Assignment Tracker", to: "/tracker", icon: <FaChalkboardTeacher /> },
 ];
