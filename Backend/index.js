@@ -26,13 +26,11 @@ app.use('/api/auth', authRoutes);
 
 // Connect to MongoDB and start server
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/myapp';
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log('✅ MongoDB connected');
-    const PORT = process.env.PORT || 4000;
-    app.listen(PORT, () => console.log(`🚀 Backend listening on ${PORT}`));
+    console.log("✅ MongoDB connected");
   })
-  .catch(err => {
-    console.error('❌ MongoDB connection error:', err);
+  .catch((err) => {
+    console.error("❌ MongoDB connection error:", err);
     process.exit(1);
   });
