@@ -5,7 +5,6 @@ import {
   Award,
   Clock,
   Folder,
-  Heart,
   Calendar,
   Book,
 } from 'lucide-react';
@@ -24,13 +23,22 @@ const statCards = [
     iconColor: 'text-blue-500',
   },
   {
-    id: 'questions-asked',
-    label: 'Questions Asked',
+    id: 'Forum-Contributions',
+    label: 'Forum Contributions',
     value: 12,
     icon: MessageCircle,
     valueColor: 'text-purple-500',
     iconBgColor: 'bg-purple-100',
     iconColor: 'text-purple-500',
+  },
+  {
+    id : 'Project-Contributions',
+    label: 'Project Contributions',
+    value: 5,
+    icon: Folder,
+    valueColor: 'text-indigo-500',
+    iconBgColor: 'bg-indigo-100',
+    iconColor: 'text-indigo-500',
   },
   {
     id: 'points-earned',
@@ -63,7 +71,7 @@ const featureCards = [
   },
   {
     id: 'feature-qa',
-    title: 'Q&A Forum',
+    title: 'Students Forum',
     description: 'Ask questions and help others with their academic queries',
     icon: MessageCircle,
     iconBgColor: 'bg-blue-100',
@@ -82,14 +90,6 @@ const featureCards = [
     title: 'Projects',
     description: 'Collaborate on projects and showcase your work',
     icon: Folder,
-    iconBgColor: 'bg-blue-100',
-    iconColor: 'text-blue-500',
-  },
-  {
-    id: 'feature-mentorship',
-    title: 'Mentorship',
-    description: 'Find mentors or become one to help others grow',
-    icon: Heart,
     iconBgColor: 'bg-blue-100',
     iconColor: 'text-blue-500',
   },
@@ -114,62 +114,6 @@ const featureCards = [
 const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 px-8 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="bg-blue-500 p-2 rounded-lg">
-              <Book className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-2xl font-bold text-blue-500">Campus Connect</h1>
-          </div>
-          <nav className="flex items-center gap-6">
-            <button className="flex items-center gap-2 text-blue-500">
-              <Book className="w-4 h-4" />
-              <span className="text-sm">Dashboard</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Users className="w-4 h-4" />
-              <span className="text-sm">Study Groups</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <MessageCircle className="w-4 h-4" />
-              <span className="text-sm">
-                <Link to="/ask-question">Q&amp;A</Link>
-              </span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Users className="w-4 h-4" />
-              <span className="text-sm">Alumni</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Folder className="w-4 h-4" />
-              <span className="text-sm">Projects</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Heart className="w-4 h-4" />
-              <span className="text-sm">Mentorship</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Calendar className="w-4 h-4" />
-              <span className="text-sm">
-                <Link to="/add-event">Events</Link>
-              </span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Book className="w-4 h-4" />
-              <span className="text-sm">Workshops</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-700 hover:text-blue-500">
-              <Users className="w-4 h-4" />
-              <span className="text-sm">
-                <Link to="/user-profile">Profile</Link>
-              </span>
-            </button>
-          </nav>
-        </div>
-      </header>
-
       <main className="px-8 py-8">
         {/* Welcome Section */}
         <div className="mb-8">

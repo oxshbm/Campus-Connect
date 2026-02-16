@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "../styles/AskQuestion.css";
-import { Users, MessageCircle, Award, Clock, Folder, Heart, Calendar, Book } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Sidebar from "../components/Sidebar";
  // <-- move all <style> content here
-
 interface Post {
   id: number;
   title: string;
@@ -81,67 +79,17 @@ const AskQuestion: React.FC = () => {
   return (
     <>
       {/* Font Awesome */}
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      />
-
-      {/* Navbar */}
-      <nav id="navbar">
-        <header className="bg-white border-b border-gray-200 px-8 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="bg-blue-500 p-2 rounded-lg">
-              <Book className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-2xl font-bold text-blue-500">Campus Connect</h1>
-          </div>
-          <nav className="flex items-center gap-6">
-            <button className="flex items-center gap-2 text-blue-500">
-              <Book className="w-4 h-4" />
-              <span className="text-sm">Dashboard</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Users className="w-4 h-4" />
-              <span className="text-sm">Study Groups</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <MessageCircle className="w-4 h-4" />
-              <span className="text-sm"><Link to ="/ask-question">Q&A</Link></span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Users className="w-4 h-4" />
-              <span className="text-sm">Alumni</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Folder className="w-4 h-4" />
-              <span className="text-sm">Projects</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Heart className="w-4 h-4" />
-              <span className="text-sm">Mentorship</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Calendar className="w-4 h-4" />
-              <span className="text-sm">Events</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500">
-              <Book className="w-4 h-4" />
-              <span className="text-sm">Workshops</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-700 hover:text-blue-500">
-              <Users className="w-4 h-4" />
-              <span className="text-sm">Profile</span>
-            </button>
-          </nav>
-        </div>
-      </header>
-      </nav>
-
       {/* Main content container */}
-      <div className="container">
+      <div className="flex min-h-screen w-full">
         {/* Main feed */}
-        <main className="main-content">
+        <Sidebar />
+        <main className="flex-1 px-6 py-6">
+          <header className="mb-6">
+            <h1 className="text-3xl font-bold text-gray-800">Ask a Question</h1>
+            <p className="text-gray-600">
+              Join the discussion and get answers from the community.
+            </p>
+          </header>
           {/* Create Post Form */}
           <form className="create-post-form" id="create-post-form" onSubmit={handleSubmit}>
             <div className="form-content">
@@ -227,7 +175,7 @@ const AskQuestion: React.FC = () => {
         </main>
 
         {/* Sidebar */}
-        <aside className="sidebar">
+        <aside className="w-80 p-6">
           <div className="widget about-widget">
             <h3 className="widget-title">About QAFORUM</h3>
             <p>

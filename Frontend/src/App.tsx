@@ -13,6 +13,10 @@ import CreateGroup from './pages/CreateGroup'
 import Sidebar from './components/Sidebar'
 import AskQuestion from './pages/AskQuestion'
 import AddEvent from './pages/AddEvent'
+import AluminiDictonary from './pages/AluminiDictonary'
+import Events from './pages/Events'
+import Workshops from './pages/Workshops'
+import Projects from './pages/Projects'
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => (
   <div className="flex min-h-screen bg-gray-50">
@@ -34,6 +38,11 @@ function App() {
         <Route path="/ask-question" element={<AskQuestion />} />
         <Route path="/add-event" element={<AddEvent />} />
         <Route path ="/user-profile" element={<UserProfile />} />
+        <Route path="/alumni-dictionary" element={<AluminiDictonary />} />
+        <Route path="/events" element={<Events />} />
+        <Route path ="/workshops" element={<Workshops />} />
+        <Route path ="/projects" element={<Projects />} />
+  
         
         {/* Dashboard routes */}
 
